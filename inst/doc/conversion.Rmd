@@ -1,0 +1,112 @@
+---
+title: "Convert images to/from native raster image format"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Convert images to/from native raster image format}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(grid)
+library(nara)
+```
+
+
+## Create a native raster image
+
+```{r}
+nr <- nr_new(10, 10, fill = 'white')
+class(nr)
+```
+
+
+
+## Save/Load native raster images to/from PNG and JPEG
+
+The `{fastpng}`, `{png}` and `{jpeg}` packages allow images to be loaded directly 
+as native raster images.
+
+
+```{r}
+png_file <- system.file("image", "deer-1.png", package="nara")
+jpg_file <- system.file("image", "deer-1.jpg", package="nara")
+```
+
+
+
+```{r}
+nr <- fastpng::read_png(png_file, type = 'nativeraster')
+class(nr)
+plot(nr)
+```
+
+
+```{r}
+nr <- png::readPNG(png_file, native = TRUE)
+class(nr)
+plot(nr)
+```
+
+```{r}
+nr <- jpeg::readJPEG(jpg_file, native = TRUE)
+class(nr)
+plot(nr)
+```
+
+
+These packages will also automatically detect and save native raster images
+
+```{r eval=FALSE}
+fastpng::write_png(nr, "test.png")
+jpeg::writeJPEG(nr, "test.jpg")
+png::writePNG(nr, "test.png")
+```
+
+## Convert a regular R `raster` image to/from native raster image format
+
+```{r}
+ras <- matrix(c('brown', 'darkblue', 'darkblue', 'brown'), 2, 2)
+ras
+class(ras)
+grid.raster(ras, interpolate = FALSE)
+```
+
+
+```{r}
+nr <- nara::raster_to_nr(ras)
+nr
+class(nr)
+plot(nr)
+```
+
+## Convert a regular R `array` image to/from native raster image format
+
+```{r}
+arr <- array(c(
+  1, 1, 0,
+  0, 0, 0,
+  0, 0, 0, 
+  1, 1, 0
+), dim = c(2, 2, 3))
+
+arr
+class(arr)
+grid.raster(arr, interpolate = FALSE)
+```
+
+```{r}
+nr <- nara::array_to_nr(arr)
+nr
+class(nr)
+plot(nr)
+```
+
+

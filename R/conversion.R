@@ -1,0 +1,97 @@
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' Convert native raster images to/from other R objects
+#'
+#' @inheritParams nr_rect
+#' @param ras standard R raster i.e. a character matrix of hex color values
+#' @param arr 3d numeric array representing R,G,B,A values with dimensions [nrow, ncol, 4] or
+#'        [nrow, ncol, 3]. Each value is in range [0,1].
+#' @param dst destination native raster image. If NULL (the default) a new 
+#/        native raster image will be created.
+#'
+#' @return raster, array or native raster image
+#' 
+#' @examples
+#' nr <- nr_new(12, 8, 'hotpink')
+#' nr_to_raster(nr)
+#' 
+#' nr_to_array(nr)
+#' @family conversion functions
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nr_to_raster <- function(nr) {
+  .Call(nr_to_raster_, nr)
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @rdname nr_to_raster
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+raster_to_nr <- function(ras, dst = NULL) {
+  .Call(raster_to_nr_, ras, dst)
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @rdname nr_to_raster
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nr_to_array <- function(nr) {
+  .Call(nr_to_array_, nr)
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @rdname nr_to_raster
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+array_to_nr <- function(arr, dst = NULL) {
+  .Call(array_to_nr_, arr, dst)
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' Convert a numeric matrix to native raster image
+#' 
+#' @param mat integer matrix
+#' @param palette vector of colors.  For an integer matrix, this palette must 
+#'        contain at least as many colors as the maximum integer value in \code{mat}. 
+#'        For a numeric matrix, any length palette is allowed, and the nearest
+#'        corresponding color is chosen (no interpolation is done).
+#' @param dst destination native raster image. If NULL (the default) a 
+#'        new native raster image will be created  If a native raster image 
+#'        is supplied here, it must have the exact dimensions to match the matrix        
+#' @param fill Color to be used for values < 1 when input is an integer matrix.  
+#'        Default: 'transparent'.
+#' @param min,max assumed range for the numeric data.  values from the palette
+#'        will be interpolated using this range as the extents.  An error
+#'        will occur if a value lies outside this range. Default: (0, 1)
+#' @return native raster image
+#'
+#' @examples
+#' # integer matrix
+#' m <- matrix(1:12, 3, 4)
+#' m
+#' palette <- rainbow(12)
+#' nr <- matrix_to_nr(m, palette) 
+#' plot(nr)
+#' 
+#' 
+#' # numeric matrix
+#' m <- matrix(runif(20 * 30), 20, 30)
+#' palette <- c('red', 'blue', 'black', 'green', 'blue', 'yellow')
+#' nr <- matrix_to_nr(m, palette)
+#' plot(nr)
+#' @family conversion functions
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+matrix_to_nr <- function(mat, palette, fill = 'transparent', min = 0.0, max = 1.0, dst = NULL) {
+  .Call(matrix_to_nr_, mat, palette, fill, min, max, dst)
+}
+
+

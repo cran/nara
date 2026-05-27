@@ -1,0 +1,44 @@
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' Resize a native raster by specifying the output dimensions
+#' 
+#' @inheritParams nr_fill
+#' @param algo 'nn' for nearest neighbor (the default), or 'bilinear' for 
+#'        bilinear interpolation.
+#' @param width,height dimensions for output image
+#' @return New native raster image
+#' @examples
+#' stretched <- deer[[1]] |> 
+#'     nr_copy() |> 
+#'     nr_resize(100, 40, algo = 'nn')
+#' plot(stretched)
+#' @family resizing functions
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nr_resize <- function(nr, width, height, algo = 'nn') {
+  if (algo == 'nn') {
+    .Call(nr_resize_nn_, nr, width, height)
+  } else {
+    .Call(nr_resize_bilinear_, nr, width, height)
+  }
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' Resize a native raster image using a scale factor
+#' 
+#' @inheritParams nr_resize
+#' @param scale scale factor
+#' 
+#' @return New native raster image
+#' @examples
+#' big <- deer[[1]] |> nr_scale(2)
+#' plot(big)
+#' @family resizing functions
+#' @export
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nr_scale <- function(nr, scale, algo = 'nn') {
+  nr_resize(nr, width = scale * ncol(nr), height = scale * nrow(nr), algo = algo)
+}
+
