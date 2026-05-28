@@ -32,16 +32,10 @@ plot(nr)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other conversion functions: 
-\code{\link{matrix_to_nr}()},
-\code{\link{nr_to_raster}()},
-\code{\link{nrs_to_gif}()},
-\code{\link{nrs_to_mp4}()}
-
-Other conversion functions: 
-\code{\link{matrix_to_nr}()},
-\code{\link{nr_to_raster}()},
-\code{\link{nrs_to_gif}()},
-\code{\link{nrs_to_mp4}()}
+Other conversion functions:
+\code{\link[=matrix_to_nr]{matrix_to_nr()}},
+\code{\link[=nr_to_raster]{nr_to_raster()}},
+\code{\link[=nrs_to_gif]{nrs_to_gif()}},
+\code{\link[=nrs_to_mp4]{nrs_to_mp4()}}
 }
 \concept{conversion functions}

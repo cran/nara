@@ -80,7 +80,7 @@ nr_blit(nr, src = sq, x = 300, y = 240, angle = pi/2, scale = 1)
 plot(nr)
 }
 \seealso{
-Other blitting functions: 
-\code{\link{nr_blit_multi}()}
+Other blitting functions:
+\code{\link[=nr_blit_multi]{nr_blit_multi()}}
 }
 \concept{blitting functions}

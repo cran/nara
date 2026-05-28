@@ -24,9 +24,9 @@ nr_fliph(nr)
 plot(nr)
 }
 \seealso{
-Other transformation functions: 
-\code{\link{nr_flipv}()},
-\code{\link{nr_rotate}()},
-\code{\link{nr_transpose}()}
+Other transformation functions:
+\code{\link[=nr_flipv]{nr_flipv()}},
+\code{\link[=nr_rotate]{nr_rotate()}},
+\code{\link[=nr_transpose]{nr_transpose()}}
 }
 \concept{transformation functions}

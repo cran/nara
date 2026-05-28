@@ -85,7 +85,7 @@ extern SEXP nr_tri_mesh_(SEXP nr_, SEXP vertices_, SEXP indices_, SEXP color_,
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Color twiddling
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-extern SEXP nr_desaturate_(SEXP nr_);
+extern SEXP nr_desaturate_(SEXP nr_, SEXP factor_);
 extern SEXP nr_dither_(SEXP nr_, SEXP value_, SEXP algo_);
 extern SEXP nr_threshold_(SEXP nr_, SEXP value_);
 
@@ -129,7 +129,7 @@ static const R_CallMethodDef CEntries[] = {
 
   {"nr_point_"         , (DL_FUNC) &nr_point_         , 5},
   {"nr_line_"          , (DL_FUNC) &nr_line_          , 8},
-  {"nr_text_mono_"    , (DL_FUNC) &nr_text_mono_    , 9},
+  {"nr_text_mono_"     , (DL_FUNC) &nr_text_mono_    , 9},
   {"nr_rect_"          , (DL_FUNC) &nr_rect_          , 11},
   {"nr_circle_"        , (DL_FUNC) &nr_circle_        , 7},
   {"nr_polyline_"      , (DL_FUNC) &nr_polyline_      , 8},

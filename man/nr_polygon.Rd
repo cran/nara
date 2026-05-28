@@ -66,10 +66,10 @@ nr_point(nr, xs, ys, col = 'red')
 plot(nr)
 }
 \seealso{
-Other drawing functions: 
-\code{\link{nr_circle}()},
-\code{\link{nr_polyline}()},
-\code{\link{nr_rect}()},
-\code{\link{nr_tri_mesh}()}
+Other drawing functions:
+\code{\link[=nr_circle]{nr_circle()}},
+\code{\link[=nr_polyline]{nr_polyline()}},
+\code{\link[=nr_rect]{nr_rect()}},
+\code{\link[=nr_tri_mesh]{nr_tri_mesh()}}
 }
 \concept{drawing functions}

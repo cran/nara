@@ -25,9 +25,9 @@ nr_rotate(nr, 90)
 dim(nr)
 }
 \seealso{
-Other transformation functions: 
-\code{\link{nr_fliph}()},
-\code{\link{nr_flipv}()},
-\code{\link{nr_transpose}()}
+Other transformation functions:
+\code{\link[=nr_fliph]{nr_fliph()}},
+\code{\link[=nr_flipv]{nr_flipv()}},
+\code{\link[=nr_transpose]{nr_transpose()}}
 }
 \concept{transformation functions}

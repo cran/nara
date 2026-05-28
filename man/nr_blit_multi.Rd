@@ -59,7 +59,7 @@ nr_blit_multi(dst = nr, src = deer, config = config)
 plot(nr)
 }
 \seealso{
-Other blitting functions: 
-\code{\link{nr_blit}()}
+Other blitting functions:
+\code{\link[=nr_blit]{nr_blit()}}
 }
 \concept{blitting functions}

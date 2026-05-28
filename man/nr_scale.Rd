@@ -25,7 +25,7 @@ big <- deer[[1]] |> nr_scale(2)
 plot(big)
 }
 \seealso{
-Other resizing functions: 
-\code{\link{nr_resize}()}
+Other resizing functions:
+\code{\link[=nr_resize]{nr_resize()}}
 }
 \concept{resizing functions}

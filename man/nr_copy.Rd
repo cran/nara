@@ -23,7 +23,7 @@ nr2 <- nr_copy(nr1)
 plot(nr2)
 }
 \seealso{
-Other image creation functions: 
-\code{\link{nr_new}()}
+Other image creation functions:
+\code{\link[=nr_new]{nr_new()}}
 }
 \concept{image creation functions}

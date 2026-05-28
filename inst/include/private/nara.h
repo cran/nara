@@ -13,6 +13,7 @@
 
 
 
+
 static inline SEXP nr_new(int nr_width, int nr_height) {
   static SEXP (*fun)(int nr_width, int nr_height) = NULL;
 
@@ -123,14 +124,14 @@ static inline void nr_rect (uint32_t *nr, int nr_width, int nr_height, int x , i
 }
 
 
-static inline void nr_text_mono(uint32_t *nr, int nr_width, int nr_height, int x , int y , const char *str, uint32_t color, int fontsize, bool use_alpha) {
-  static void (*fun)(uint32_t *nr, int nr_width, int nr_height, int x , int y , const char *str, uint32_t color, int fontsize, bool use_alpha) = NULL;
+static inline void nr_text_mono(uint32_t *nr, int nr_width, int nr_height, int x , int y , const char *str, uint32_t color, int fontsize, double hjust, double vjust, bool use_alpha) {
+  static void (*fun)(uint32_t *nr, int nr_width, int nr_height, int x , int y , const char *str, uint32_t color, int fontsize, double hjust, double vjust, bool use_alpha) = NULL;
 
   if (fun == NULL) {
-    fun = (void (*)(uint32_t *nr, int nr_width, int nr_height, int x , int y , const char *str, uint32_t color, int fontsize, bool use_alpha)) R_GetCCallable("nara", "nr_text_mono");
+    fun = (void (*)(uint32_t *nr, int nr_width, int nr_height, int x , int y , const char *str, uint32_t color, int fontsize, double hjust, double vjust, bool use_alpha)) R_GetCCallable("nara", "nr_text_mono");
   }
 
-  fun(nr, nr_width, nr_height, x, y, str, color, fontsize, use_alpha);
+  fun(nr, nr_width, nr_height, x, y, str, color, fontsize, hjust, vjust, use_alpha);
 }
 
 

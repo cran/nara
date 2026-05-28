@@ -30,10 +30,10 @@ nrs_to_mp4(list(nr1, nr2), "nothing.mp4")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other conversion functions: 
-\code{\link{magick_to_nr}()},
-\code{\link{matrix_to_nr}()},
-\code{\link{nr_to_raster}()},
-\code{\link{nrs_to_gif}()}
+Other conversion functions:
+\code{\link[=magick_to_nr]{magick_to_nr()}},
+\code{\link[=matrix_to_nr]{matrix_to_nr()}},
+\code{\link[=nr_to_raster]{nr_to_raster()}},
+\code{\link[=nrs_to_gif]{nrs_to_gif()}}
 }
 \concept{conversion functions}

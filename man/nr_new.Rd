@@ -40,7 +40,7 @@ plot(nr)
 
 }
 \seealso{
-Other image creation functions: 
-\code{\link{nr_copy}()}
+Other image creation functions:
+\code{\link[=nr_copy]{nr_copy()}}
 }
 \concept{image creation functions}

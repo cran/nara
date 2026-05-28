@@ -26,9 +26,9 @@ nr_desaturate(nr)
 plot(nr)
 }
 \seealso{
-Other color manipulation functions: 
-\code{\link{nr_color_replace}()},
-\code{\link{nr_dither}()},
-\code{\link{nr_threshold}()}
+Other color manipulation functions:
+\code{\link[=nr_color_replace]{nr_color_replace()}},
+\code{\link[=nr_dither]{nr_dither()}},
+\code{\link[=nr_threshold]{nr_threshold()}}
 }
 \concept{color manipulation functions}

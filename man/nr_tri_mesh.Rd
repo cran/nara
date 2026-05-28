@@ -78,10 +78,10 @@ plot(nr)
 
 }
 \seealso{
-Other drawing functions: 
-\code{\link{nr_circle}()},
-\code{\link{nr_polygon}()},
-\code{\link{nr_polyline}()},
-\code{\link{nr_rect}()}
+Other drawing functions:
+\code{\link[=nr_circle]{nr_circle()}},
+\code{\link[=nr_polygon]{nr_polygon()}},
+\code{\link[=nr_polyline]{nr_polyline()}},
+\code{\link[=nr_rect]{nr_rect()}}
 }
 \concept{drawing functions}

@@ -27,7 +27,7 @@ stretched <- deer[[1]] |>
 plot(stretched)
 }
 \seealso{
-Other resizing functions: 
-\code{\link{nr_scale}()}
+Other resizing functions:
+\code{\link[=nr_scale]{nr_scale()}}
 }
 \concept{resizing functions}

@@ -23,9 +23,9 @@ nr_transpose(nr)
 dim(nr)
 }
 \seealso{
-Other transformation functions: 
-\code{\link{nr_fliph}()},
-\code{\link{nr_flipv}()},
-\code{\link{nr_rotate}()}
+Other transformation functions:
+\code{\link[=nr_fliph]{nr_fliph()}},
+\code{\link[=nr_flipv]{nr_flipv()}},
+\code{\link[=nr_rotate]{nr_rotate()}}
 }
 \concept{transformation functions}
